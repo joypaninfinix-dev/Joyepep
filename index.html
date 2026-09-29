@@ -2,1507 +2,1447 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Joivan | My Profile</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Joivan | Portfolio</title>
 
 <style>
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
 
-/* =========================
-   BASIC
-========================= */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+body{
+  font-family:Arial,sans-serif;
+  background:#050008;
+  color:white;
+  overflow-x:hidden;
 }
 
-html {
-  scroll-behavior: smooth;
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:
+    radial-gradient(circle at 50% 10%,#4c087d,transparent 30%),
+    radial-gradient(circle at 80% 80%,#260052,transparent 35%);
 }
 
-body {
-  min-height: 100vh;
-
-  font-family: Arial, sans-serif;
-
-  color: white;
-
-  background: #000;
-
-  overflow-x: hidden;
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:100;
+  padding:18px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#050008e8;
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #64228d;
 }
 
-
-/* =========================
-   BACKGROUND GLOW
-========================= */
-
-body::before {
-  content: "";
-
-  position: fixed;
-
-  width: 350px;
-  height: 350px;
-
-  top: -150px;
-  left: -100px;
-
-  background: #00ff88;
-
-  opacity: .12;
-
-  border-radius: 50%;
-
-  filter: blur(90px);
-
-  animation: glow1 6s infinite alternate;
-
-  z-index: -1;
+.logo{
+  font-size:26px;
+  font-weight:bold;
 }
 
-body::after {
-  content: "";
-
-  position: fixed;
-
-  width: 350px;
-  height: 350px;
-
-  right: -120px;
-  bottom: -120px;
-
-  background: #00ffff;
-
-  opacity: .1;
-
-  border-radius: 50%;
-
-  filter: blur(90px);
-
-  animation: glow2 6s infinite alternate;
-
-  z-index: -1;
+.logo span{
+  color:#c084fc;
 }
 
-@keyframes glow1 {
+.links{
+  display:flex;
+  gap:20px;
+}
 
-  from {
-    transform: translate(0,0);
+.links a{
+  color:#ddd;
+  text-decoration:none;
+}
+
+.links a:hover{
+  color:#e879f9;
+}
+
+.menu{
+  display:none;
+  font-size:28px;
+}
+
+section{
+  padding:100px 6%;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+}
+
+#home{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+}
+
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+
+.small{
+  color:#c084fc;
+  letter-spacing:4px;
+  margin-bottom:20px;
+}
+
+h1{
+  font-size:clamp(50px,8vw,90px);
+}
+
+h1 span{
+  color:#a855f7;
+  text-shadow:0 0 30px #8b5cf6;
+}
+
+.hero h2{
+  margin:20px 0;
+}
+
+p{
+  color:#aaa;
+  line-height:1.8;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:14px 22px;
+  border:0;
+  border-radius:12px;
+  color:white;
+  background:linear-gradient(135deg,#7c3aed,#c026d3);
+  text-decoration:none;
+  cursor:pointer;
+  font-size:16px;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 25px #a855f7;
+}
+
+/* FOTO */
+
+.photo{
+  display:flex;
+  justify-content:center;
+  position:relative;
+}
+
+.photo:before{
+  content:"";
+  position:absolute;
+  width:300px;
+  height:300px;
+  background:#8b5cf6;
+  filter:blur(80px);
+  opacity:.45;
+}
+
+.photo img{
+  position:relative;
+  width:280px;
+  height:350px;
+  object-fit:cover;
+  border-radius:30px;
+  border:3px solid #a855f7;
+  box-shadow:0 0 30px #8b5cf6;
+}
+
+/* GENERAL */
+
+.title{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.title h2{
+  font-size:42px;
+}
+
+.title span{
+  color:#c084fc;
+}
+
+.title p{
+  margin-top:10px;
+}
+
+.glass{
+  background:#14051ecc;
+  border:1px solid #542078;
+  border-radius:20px;
+  box-shadow:0 0 25px #a855f71a;
+}
+
+/* ABOUT */
+
+.about{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.card{
+  padding:30px;
+}
+
+.info{
+  padding:15px 0;
+  border-bottom:1px solid #3b174f;
+  display:flex;
+  justify-content:space-between;
+}
+
+.info span{
+  color:#aaa;
+}
+
+/* SKILLS */
+
+.skills{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.skill{
+  padding:25px;
+}
+
+.skill:hover{
+  transform:translateY(-6px);
+}
+
+.skilltop{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:15px;
+}
+
+.skilltop b{
+  color:#c084fc;
+}
+
+.bar{
+  height:10px;
+  background:#25142e;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.bar div{
+  height:100%;
+  background:linear-gradient(90deg,#7c3aed,#e879f9);
+}
+
+/* PROJECT */
+
+.projects{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.project{
+  overflow:hidden;
+}
+
+.project-icon{
+  height:150px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:60px;
+}
+
+.project-content{
+  padding:25px;
+}
+
+.tag{
+  display:inline-block;
+  margin-top:12px;
+  margin-right:5px;
+  padding:6px 10px;
+  border:1px solid #7c3aed;
+  border-radius:20px;
+  color:#c084fc;
+  font-size:12px;
+}
+
+/* MATH */
+
+.game{
+  max-width:800px;
+  margin:auto;
+  padding:30px;
+  text-align:center;
+}
+
+.modes{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.mode{
+  padding:10px 13px;
+  border:1px solid #7c3aed;
+  border-radius:10px;
+  background:#100619;
+  color:white;
+}
+
+.mode.active{
+  background:#7c3aed;
+}
+
+#question{
+  font-size:35px;
+  font-weight:bold;
+  margin:30px 0;
+}
+
+.game input{
+  width:250px;
+  max-width:100%;
+  padding:13px;
+  border-radius:10px;
+  border:1px solid #7c3aed;
+  background:#100619;
+  color:white;
+}
+
+/* RACING */
+
+.race{
+  max-width:430px;
+  margin:auto;
+}
+
+.race-info{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:10px;
+}
+
+.road{
+  position:relative;
+  width:100%;
+  height:600px;
+  overflow:hidden;
+  border:2px solid #63258c;
+  border-radius:20px;
+  background:#292929;
+}
+
+.line{
+  position:absolute;
+  top:-150px;
+  width:7px;
+  height:130px;
+  background:white;
+  border-radius:10px;
+  animation:road .7s linear infinite;
+}
+
+.line.one{left:33%}
+.line.two{left:66%}
+
+@keyframes road{
+  to{transform:translateY(800px)}
+}
+
+.car{
+  position:absolute;
+  width:48px;
+  height:80px;
+  border-radius:12px;
+}
+
+.player{
+  bottom:25px;
+  left:50%;
+  transform:translateX(-50%);
+  background:linear-gradient(#ddd,#7c3aed);
+  box-shadow:0 0 20px #a855f7;
+}
+
+.enemy{
+  top:-100px;
+  background:linear-gradient(#ff6b81,#b91c1c);
+}
+
+.enemy2{
+  background:linear-gradient(#ffd166,#d97706);
+}
+
+.car:before{
+  content:"";
+  position:absolute;
+  left:8px;
+  right:8px;
+  top:10px;
+  height:25px;
+  border-radius:7px;
+  background:#111;
+  border:2px solid white;
+}
+
+.controls{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin-top:15px;
+}
+
+.control{
+  width:80px;
+  height:55px;
+  border-radius:14px;
+  border:1px solid #7c3aed;
+  background:#16091d;
+  color:white;
+  font-size:25px;
+}
+
+.over{
+  position:absolute;
+  inset:0;
+  background:#050008dd;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  z-index:10;
+}
+
+.hidden{
+  display:none;
+}
+
+/* CONTACT */
+
+.contact{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+form{
+  padding:30px;
+}
+
+form input,
+form textarea{
+  width:100%;
+  padding:13px;
+  margin:8px 0 15px;
+  border-radius:10px;
+  border:1px solid #542078;
+  background:#100619;
+  color:white;
+}
+
+textarea{
+  height:130px;
+  resize:none;
+}
+
+footer{
+  text-align:center;
+  padding:35px;
+  border-top:1px solid #3b174f;
+  color:#999;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  .links{
+    display:none;
+    position:absolute;
+    top:70px;
+    left:5%;
+    right:5%;
+    flex-direction:column;
+    padding:20px;
+    background:#0c0313;
+    border:1px solid #542078;
+    border-radius:15px;
   }
 
-  to {
-    transform: translate(80px,60px);
+  .links.show{
+    display:flex;
   }
 
-}
-
-@keyframes glow2 {
-
-  from {
-    transform: translate(0,0);
+  .menu{
+    display:block;
+    cursor:pointer;
   }
 
-  to {
-    transform: translate(-80px,-50px);
+  .hero,
+  .about,
+  .contact{
+    grid-template-columns:1fr;
   }
 
+  .skills,
+  .projects{
+    grid-template-columns:1fr 1fr;
+  }
 }
 
+@media(max-width:500px){
 
-/* =========================
-   PROFILE
-========================= */
-
-.profile {
-  width: 90%;
-  max-width: 500px;
-
-  margin: 50px auto;
-
-  padding: 40px 25px;
-
-  text-align: center;
-
-  background: rgba(15,15,15,.94);
-
-  border: 1px solid #292929;
-
-  border-radius: 28px;
-
-  box-shadow:
-    0 0 40px rgba(0,255,136,.08);
-
-  animation: masuk 1s ease;
-}
-
-@keyframes masuk {
-
-  from {
-    opacity: 0;
-    transform: translateY(50px);
+  .skills,
+  .projects{
+    grid-template-columns:1fr;
   }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .photo img{
+    width:230px;
+    height:290px;
   }
 
-}
-
-
-/* =========================
-   AVATAR
-========================= */
-
-.avatar {
-
-  width: 115px;
-  height: 115px;
-
-  margin: auto;
-  margin-bottom: 20px;
-
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  border-radius: 50%;
-
-  background: #050505;
-
-  border: 3px solid #00ff88;
-
-  color: #00ff88;
-
-  font-size: 52px;
-
-  font-weight: bold;
-
-  box-shadow:
-    0 0 20px #00ff88,
-    0 0 50px rgba(0,255,136,.25);
-
-  animation: melayang 3s infinite ease-in-out;
-}
-
-@keyframes melayang {
-
-  0%,100% {
-    transform: translateY(0);
+  .road{
+    height:520px;
   }
-
-  50% {
-    transform: translateY(-10px);
-  }
-
 }
-
-
-/* =========================
-   TEXT
-========================= */
-
-h1 {
-  font-size: 36px;
-
-  margin-bottom: 12px;
-}
-
-h1 span {
-  color: #00ff88;
-
-  text-shadow:
-    0 0 10px #00ff88;
-}
-
-.umur {
-
-  display: inline-block;
-
-  padding: 7px 17px;
-
-  margin-bottom: 20px;
-
-  border: 1px solid #00ff88;
-
-  border-radius: 50px;
-
-  color: #00ff88;
-
-  font-size: 12px;
-
-  letter-spacing: 3px;
-}
-
-.typing {
-
-  height: 30px;
-
-  color: #00ffff;
-
-  font-size: 19px;
-
-  font-weight: bold;
-}
-
-.cursor {
-  color: #00ff88;
-
-  animation: blink .7s infinite;
-}
-
-@keyframes blink {
-
-  50% {
-    opacity: 0;
-  }
-
-}
-
-.bio {
-
-  margin: 20px auto;
-
-  color: #999;
-
-  line-height: 1.7;
-}
-
-
-/* =========================
-   BUTTON
-========================= */
-
-.buttons {
-
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 12px;
-
-  margin-top: 25px;
-}
-
-.btn {
-
-  display: block;
-
-  width: 100%;
-
-  padding: 15px;
-
-  border-radius: 13px;
-
-  text-decoration: none;
-
-  font-weight: bold;
-
-  transition: .3s;
-}
-
-.whatsapp {
-
-  background: #00ff88;
-
-  color: #000;
-
-  box-shadow:
-    0 0 20px rgba(0,255,136,.2);
-}
-
-.whatsapp:hover {
-
-  transform: translateY(-5px);
-
-  box-shadow:
-    0 0 35px rgba(0,255,136,.5);
-}
-
-
-/* =========================
-   PROJECT SECTION
-========================= */
-
-.projects {
-
-  margin-top: 50px;
-
-  text-align: left;
-}
-
-.projects-title {
-
-  text-align: center;
-
-  margin-bottom: 20px;
-
-  font-size: 26px;
-}
-
-.projects-title span {
-
-  color: #00ff88;
-
-  text-shadow:
-    0 0 10px #00ff88;
-}
-
-
-/* PROJECT CARD */
-
-.project-card {
-
-  position: relative;
-
-  padding: 22px;
-
-  margin-bottom: 18px;
-
-  background: #101010;
-
-  border: 1px solid #292929;
-
-  border-radius: 20px;
-
-  overflow: hidden;
-
-  transition: .4s;
-
-  animation: projectIn .8s ease both;
-}
-
-.project-card:nth-child(2) {
-  animation-delay: .2s;
-}
-
-.project-card:hover {
-
-  transform: translateY(-7px);
-
-  border-color: #00ff88;
-
-  box-shadow:
-    0 0 25px rgba(0,255,136,.15);
-}
-
-@keyframes projectIn {
-
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-}
-
-.project-icon {
-
-  font-size: 40px;
-
-  margin-bottom: 10px;
-}
-
-.project-card h3 {
-
-  font-size: 21px;
-
-  margin-bottom: 8px;
-}
-
-.project-card p {
-
-  color: #888;
-
-  font-size: 14px;
-
-  line-height: 1.6;
-
-  margin-bottom: 15px;
-}
-
-.project-button {
-
-  display: inline-block;
-
-  padding: 10px 15px;
-
-  border-radius: 10px;
-
-  border: 1px solid #00ff88;
-
-  color: #00ff88;
-
-  text-decoration: none;
-
-  cursor: pointer;
-
-  background: transparent;
-
-  transition: .3s;
-}
-
-.project-button:hover {
-
-  background: #00ff88;
-
-  color: #000;
-
-  box-shadow:
-    0 0 20px rgba(0,255,136,.4);
-}
-
-
-/* =========================
-   SOCIAL
-========================= */
-
-.social {
-
-  display: flex;
-
-  justify-content: center;
-
-  gap: 22px;
-
-  margin-top: 30px;
-}
-
-.social a {
-
-  color: #777;
-
-  text-decoration: none;
-
-  transition: .3s;
-}
-
-.social a:hover {
-
-  color: #00ff88;
-
-  transform: translateY(-3px);
-}
-
-
-/* =========================
-   MODAL
-========================= */
-
-.modal {
-
-  position: fixed;
-
-  inset: 0;
-
-  display: none;
-
-  justify-content: center;
-
-  align-items: center;
-
-  padding: 20px;
-
-  background: rgba(0,0,0,.8);
-
-  backdrop-filter: blur(10px);
-
-  z-index: 100;
-}
-
-.modal.active {
-
-  display: flex;
-
-  animation: fade .3s ease;
-}
-
-@keyframes fade {
-
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-
-}
-
-.modal-box {
-
-  width: 100%;
-
-  max-width: 430px;
-
-  max-height: 90vh;
-
-  overflow-y: auto;
-
-  padding: 25px;
-
-  background: #111;
-
-  border: 1px solid #333;
-
-  border-radius: 22px;
-
-  box-shadow:
-    0 0 40px rgba(0,255,136,.15);
-
-  animation: popup .4s ease;
-}
-
-@keyframes popup {
-
-  from {
-    transform: scale(.8);
-  }
-
-  to {
-    transform: scale(1);
-  }
-
-}
-
-.close {
-
-  float: right;
-
-  font-size: 25px;
-
-  color: #777;
-
-  cursor: pointer;
-}
-
-.close:hover {
-  color: #00ff88;
-}
-
-.modal-title {
-
-  margin-bottom: 20px;
-
-  color: #00ff88;
-}
-
-
-/* =========================
-   MINI GAME
-========================= */
-
-.game-input {
-
-  width: 100%;
-
-  padding: 13px;
-
-  margin: 10px 0;
-
-  background: #050505;
-
-  color: white;
-
-  border: 1px solid #333;
-
-  border-radius: 10px;
-
-  outline: none;
-}
-
-.game-input:focus {
-
-  border-color: #00ff88;
-
-  box-shadow:
-    0 0 10px rgba(0,255,136,.2);
-}
-
-.game-btn {
-
-  width: 100%;
-
-  padding: 13px;
-
-  border: none;
-
-  border-radius: 10px;
-
-  background: #00ff88;
-
-  color: #000;
-
-  font-weight: bold;
-
-  cursor: pointer;
-}
-
-.game-btn:hover {
-
-  box-shadow:
-    0 0 20px rgba(0,255,136,.4);
-}
-
-.game-result {
-
-  min-height: 30px;
-
-  margin-top: 15px;
-
-  color: #00ffff;
-
-  text-align: center;
-}
-
-
-/* =========================
-   MONEY TRACKER
-========================= */
-
-.balance {
-
-  padding: 20px;
-
-  margin-bottom: 20px;
-
-  text-align: center;
-
-  background: #050505;
-
-  border-radius: 15px;
-
-  border: 1px solid #292929;
-}
-
-.balance small {
-
-  color: #777;
-}
-
-.balance h2 {
-
-  margin-top: 8px;
-
-  color: #00ff88;
-}
-
-.money-input {
-
-  width: 100%;
-
-  padding: 12px;
-
-  margin-bottom: 10px;
-
-  background: #050505;
-
-  color: white;
-
-  border: 1px solid #333;
-
-  border-radius: 10px;
-
-  outline: none;
-}
-
-.money-buttons {
-
-  display: flex;
-
-  gap: 8px;
-}
-
-.money-buttons button {
-
-  flex: 1;
-
-  padding: 12px;
-
-  border: none;
-
-  border-radius: 10px;
-
-  cursor: pointer;
-
-  font-weight: bold;
-}
-
-.income {
-
-  background: #00ff88;
-  color: #000;
-}
-
-.expense {
-
-  background: #ff4d6d;
-  color: white;
-}
-
-.transaction {
-
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
-
-  padding: 12px;
-
-  margin-top: 10px;
-
-  background: #181818;
-
-  border-radius: 10px;
-}
-
-.transaction small {
-  color: #777;
-}
-
-.delete {
-
-  border: none;
-
-  background: transparent;
-
-  color: #ff4d6d;
-
-  cursor: pointer;
-
-  font-size: 18px;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:500px) {
-
-  .profile {
-
-    width: 92%;
-
-    padding: 35px 20px;
-  }
-
-  h1 {
-
-    font-size: 29px;
-  }
-
-  .social {
-
-    gap: 13px;
-
-    font-size: 14px;
-  }
-
-}
-
 </style>
 </head>
 
-
 <body>
 
+<!-- NAVBAR -->
 
-<!-- =========================
-     PROFILE
-========================= -->
+<nav>
 
-<div class="profile">
+<div class="logo">
+Joivan<span>.</span>
+</div>
 
+<div class="links" id="links">
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#math">Math</a>
+<a href="#racing">🏎️ Racing</a>
+<a href="#contact">Contact</a>
+</div>
 
-  <div class="avatar">
-    J
-  </div>
+<div class="menu"
+onclick="links.classList.toggle('show')">
+☰
+</div>
 
-
-  <h1>
-    Hi, I'm <span>Joivan</span> 👋
-  </h1>
-
-
-  <div class="umur">
-    15 YEARS OLD
-  </div>
-
-
-  <div class="typing">
-
-    <span id="typingText"></span>
-
-    <span class="cursor">|</span>
-
-  </div>
+</nav>
 
 
-  <p class="bio">
+<!-- HOME -->
 
-    Seorang remaja yang suka ngoding,
-    teknologi, desain, dan mencoba
-    hal-hal baru. 🚀
+<section id="home">
 
-  </p>
+<div class="container hero">
 
+<div>
 
-  <!-- CONTACT -->
+<div class="small">
+WELCOME TO MY UNIVERSE
+</div>
 
-  <div class="buttons">
+<h1>
+Hello, I'm <span>Joivan</span>
+</h1>
 
-    <a
-      href="https://wa.me/6285750334972?text=Halo%20Joivan%20%F0%9F%91%8B"
-      target="_blank"
-      class="btn whatsapp"
-    >
+<h2>
+Future Developer • Creator • Learner
+</h2>
 
-      💬 Contact Me
+<p>
+Saya sedang belajar coding,
+membuat website, game dan berbagai
+project digital.
+</p>
 
-    </a>
-
-  </div>
-
-
-  <!-- =========================
-       PROJECTS
-  ========================= -->
-
-  <section class="projects">
-
-    <h2 class="projects-title">
-      🚀 <span>My Projects</span>
-    </h2>
-
-
-    <!-- GAME -->
-
-    <div class="project-card">
-
-      <div class="project-icon">
-        🎮
-      </div>
-
-      <h3>
-        Tebak Angka
-      </h3>
-
-      <p>
-        Mini game sederhana untuk menebak
-        angka rahasia dari 1 sampai 100.
-        Dibuat menggunakan JavaScript.
-      </p>
-
-      <button
-        class="project-button"
-        onclick="bukaGame()"
-      >
-
-        ▶ Mainkan Game
-
-      </button>
-
-    </div>
-
-
-    <!-- MONEY -->
-
-    <div class="project-card">
-
-      <div class="project-icon">
-        💰
-      </div>
-
-      <h3>
-        Money Tracker
-      </h3>
-
-      <p>
-        Catat pemasukan dan pengeluaran
-        dengan saldo otomatis.
-      </p>
-
-      <button
-        class="project-button"
-        onclick="bukaMoney()"
-      >
-
-        💸 Buka Money Tracker
-
-      </button>
-
-    </div>
-
-  </section>
-
-
-  <!-- SOCIAL -->
-
-  <div class="social">
-
-    <a href="#">
-      Instagram
-    </a>
-
-    <a href="#">
-      GitHub
-    </a>
-
-    <a href="#">
-      TikTok
-    </a>
-
-  </div>
-
+<a class="btn" href="#projects">
+🚀 Lihat Project
+</a>
 
 </div>
 
 
-<!-- =========================
-     GAME MODAL
-========================= -->
+<div class="photo">
+
+<!-- FOTO LU SUDAH DITANAM DI SINI -->
+<img id="fotoJoivan" alt="Foto Joivan">
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="title">
+<h2>
+About <span>Me</span>
+</h2>
+<p>Kenalan dengan Joivan</p>
+</div>
+
+<div class="about">
+
+<div class="card glass">
+
+<h3>👋 Hai, saya Joivan</h3>
+
+<br>
+
+<p>
+Saya tertarik dengan dunia coding,
+website, game, desain dan teknologi.
+Website ini adalah portfolio pribadi saya.
+</p>
+
+</div>
+
+<div class="card glass">
+
+<div class="info">
+<span>Nama</span>
+<b>Joivan</b>
+</div>
+
+<div class="info">
+<span>Role</span>
+<b>Future Developer</b>
+</div>
+
+<div class="info">
+<span>Focus</span>
+<b>Web Development</b>
+</div>
+
+<div class="info">
+<span>Email</span>
+<b>joivanadliyanjoy@gmail.com</b>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<div class="container">
+
+<div class="title">
+<h2>
+My <span>Skills</span>
+</h2>
+<p>Kemampuan yang sedang saya pelajari</p>
+</div>
+
+<div class="skills">
+
+<div class="skill glass">
+<div class="skilltop">
+<span>🌐 HTML</span>
+<b>90%</b>
+</div>
+<div class="bar">
+<div style="width:90%"></div>
+</div>
+</div>
+
+<div class="skill glass">
+<div class="skilltop">
+<span>🎨 CSS</span>
+<b>85%</b>
+</div>
+<div class="bar">
+<div style="width:85%"></div>
+</div>
+</div>
+
+<div class="skill glass">
+<div class="skilltop">
+<span>⚡ JavaScript</span>
+<b>70%</b>
+</div>
+<div class="bar">
+<div style="width:70%"></div>
+</div>
+</div>
+
+<div class="skill glass">
+<div class="skilltop">
+<span>💻 Web Development</span>
+<b>75%</b>
+</div>
+<div class="bar">
+<div style="width:75%"></div>
+</div>
+</div>
+
+<div class="skill glass">
+<div class="skilltop">
+<span>🎨 UI Design</span>
+<b>65%</b>
+</div>
+<div class="bar">
+<div style="width:65%"></div>
+</div>
+</div>
+
+<div class="skill glass">
+<div class="skilltop">
+<span>🧠 Problem Solving</span>
+<b>80%</b>
+</div>
+<div class="bar">
+<div style="width:80%"></div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROJECT -->
+
+<section id="projects">
+
+<div class="container">
+
+<div class="title">
+<h2>
+My <span>Projects</span>
+</h2>
+</div>
+
+<div class="projects">
+
+<div class="project glass">
+<div class="project-icon">🌌</div>
+<div class="project-content">
+<h3>Joivan Universe</h3>
+<p>Website portfolio futuristik.</p>
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+</div>
+</div>
+
+<div class="project glass">
+<div class="project-icon">🧮</div>
+<div class="project-content">
+<h3>Math Game</h3>
+<p>Game matematika menggunakan JavaScript.</p>
+<span class="tag">JavaScript</span>
+</div>
+</div>
+
+<div class="project glass">
+<div class="project-icon">🏎️</div>
+<div class="project-content">
+<h3>Joivan Racing</h3>
+<p>Game mobil yang bisa dimainkan.</p>
+<span class="tag">Game</span>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- MATH -->
+
+<section id="math">
+
+<div class="container">
+
+<div class="title">
+<h2>
+🧮 Math <span>Game</span>
+</h2>
+<p>Uji kemampuan matematika</p>
+</div>
+
+<div class="game glass">
+
+<div class="modes">
+
+<button class="mode active" onclick="setMode('kali',this)">
+× Kali
+</button>
+
+<button class="mode" onclick="setMode('bagi',this)">
+÷ Bagi
+</button>
+
+<button class="mode" onclick="setMode('pangkat',this)">
+xⁿ Pangkat
+</button>
+
+<button class="mode" onclick="setMode('akar',this)">
+√ Akar
+</button>
+
+<button class="mode" onclick="setMode('angka',this)">
+Angka Penting
+</button>
+
+</div>
+
+<div id="question">
+Tekan Mulai!
+</div>
+
+<p>
+Score:
+<b id="score">0</b>
+</p>
+
+<br>
+
+<input
+id="answer"
+type="number"
+placeholder="Jawaban">
+
+<br>
+
+<button class="btn" onclick="startMath()">
+▶ Mulai
+</button>
+
+<button class="btn" onclick="checkMath()">
+Jawab
+</button>
+
+<p id="result"></p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- RACING -->
+
+<section id="racing">
+
+<div class="container">
+
+<div class="title">
+
+<h2>
+🏎️ Joivan <span>Racing</span>
+</h2>
+
+<p>
+Hindari mobil musuh!
+</p>
+
+</div>
+
+<div class="race">
+
+<div class="race-info">
+<span>🏁 Score: <b id="carScore">0</b></span>
+<span>⚡ <b id="speedText">1.0</b>x</span>
+</div>
+
+<div class="road" id="road">
+
+<div class="line one"></div>
+<div class="line two"></div>
 
 <div
-  class="modal"
-  id="gameModal"
->
-
-  <div class="modal-box">
-
-    <span
-      class="close"
-      onclick="tutupGame()"
-    >
-      ×
-    </span>
-
-    <h2 class="modal-title">
-      🎮 Tebak Angka
-    </h2>
-
-    <p>
-      Gue sudah memilih angka dari
-      <b>1 sampai 100</b>.
-      Coba tebak!
-    </p>
-
-    <input
-      type="number"
-      id="guessInput"
-      class="game-input"
-      placeholder="Masukkan angka..."
-      min="1"
-      max="100"
-    >
-
-    <button
-      class="game-btn"
-      onclick="tebakAngka()"
-    >
-
-      TEBAK!
-
-    </button>
-
-    <div
-      class="game-result"
-      id="gameResult"
-    >
-    </div>
-
-    <button
-      class="project-button"
-      onclick="resetGame()"
-      style="margin-top:15px;width:100%;"
-    >
-
-      🔄 Game Baru
-
-    </button>
-
-  </div>
-
+class="car player"
+id="player">
 </div>
-
-
-<!-- =========================
-     MONEY MODAL
-========================= -->
 
 <div
-  class="modal"
-  id="moneyModal"
->
+class="car enemy"
+id="enemy1">
+</div>
 
-  <div class="modal-box">
+<div
+class="car enemy enemy2"
+id="enemy2">
+</div>
 
-    <span
-      class="close"
-      onclick="tutupMoney()"
-    >
-      ×
-    </span>
+<div
+class="over hidden"
+id="gameOver">
 
-    <h2 class="modal-title">
-      💰 Money Tracker
-    </h2>
+<div>
 
+<h2>
+💥 GAME OVER
+</h2>
 
-    <div class="balance">
+<br>
 
-      <small>
-        Saldo Kamu
-      </small>
+<p>
+Score:
+<b id="finalScore">0</b>
+</p>
 
-      <h2 id="saldo">
-        Rp 0
-      </h2>
+<button
+class="btn"
+onclick="startRace()">
 
-    </div>
+🔄 Main Lagi
 
-
-    <input
-      type="text"
-      id="keterangan"
-      class="money-input"
-      placeholder="Contoh: Beli makanan"
-    >
-
-
-    <input
-      type="number"
-      id="jumlah"
-      class="money-input"
-      placeholder="Jumlah uang"
-    >
-
-
-    <div class="money-buttons">
-
-      <button
-        class="income"
-        onclick="tambahUang('masuk')"
-      >
-
-        + Pemasukan
-
-      </button>
-
-
-      <button
-        class="expense"
-        onclick="tambahUang('keluar')"
-      >
-
-        - Pengeluaran
-
-      </button>
-
-    </div>
-
-
-    <div id="transactions">
-
-    </div>
-
-  </div>
+</button>
 
 </div>
+
+</div>
+
+</div>
+
+<div class="controls">
+
+<button
+class="control"
+onclick="move(-1)">
+◀
+</button>
+
+<button
+class="control"
+onclick="move(1)">
+▶
+</button>
+
+</div>
+
+<button
+class="btn"
+onclick="startRace()">
+
+🏁 MULAI BALAP
+
+</button>
+
+<p style="text-align:center;margin-top:10px">
+PC: ← → atau A/D<br>
+HP: tombol kiri / kanan
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="title">
+
+<h2>
+Contact <span>Me</span>
+</h2>
+
+</div>
+
+<div class="contact">
+
+<div class="card glass">
+
+<h3>📩 Let's Connect</h3>
+
+<br>
+
+<p>
+Email:
+</p>
+
+<br>
+
+<a
+href="mailto:joivanadliyanjoy@gmail.com"
+style="color:#e879f9">
+
+joivanadliyanjoy@gmail.com
+
+</a>
+
+</div>
+
+<form
+class="glass"
+onsubmit="sendMail(event)">
+
+<input
+id="name"
+required
+placeholder="Nama kamu">
+
+<input
+id="email"
+type="email"
+required
+placeholder="Email kamu">
+
+<textarea
+id="message"
+required
+placeholder="Pesan..."></textarea>
+
+<button class="btn">
+🚀 Kirim
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+© 2026 Joivan • Built with HTML, CSS & JavaScript 🚀
+
+</footer>
 
 
 <script>
 
 /* =========================
-   TYPING EFFECT
+   FOTO JOIVAN
+   FOTO SUDAH DI-EMBED
 ========================= */
 
-const tulisan = [
+const fotoBase64 =
+"PASTE_FOTO_BASE64_DI_SINI";
 
-  "Web Developer 💻",
+document.getElementById("fotoJoivan").src =
+"data:image/jpeg;base64," + fotoBase64;
 
-  "UI/UX Enthusiast 🎨",
 
-  "Future Programmer 🚀",
+/* =========================
+   MATH GAME
+========================= */
 
-  "Creative Teenager ⚡"
+let mathMode="kali";
+let correct=0;
+let mathScore=0;
 
+function random(min,max){
+return Math.floor(Math.random()*(max-min+1))+min;
+}
+
+function newQuestion(){
+
+if(mathMode==="kali"){
+
+let a=random(2,20);
+let b=random(2,20);
+
+correct=a*b;
+
+question.innerHTML=
+`${a} × ${b} = ?`;
+
+}
+
+else if(mathMode==="bagi"){
+
+let b=random(2,15);
+let c=random(2,15);
+
+let a=b*c;
+
+correct=c;
+
+question.innerHTML=
+`${a} ÷ ${b} = ?`;
+
+}
+
+else if(mathMode==="pangkat"){
+
+let a=random(2,8);
+let b=random(2,3);
+
+correct=a**b;
+
+question.innerHTML=
+`${a}<sup>${b}</sup> = ?`;
+
+}
+
+else if(mathMode==="akar"){
+
+let a=random(2,12);
+
+correct=a;
+
+question.innerHTML=
+`√${a*a} = ?`;
+
+}
+
+else{
+
+let data=[
+["1.20 × 10³",3],
+["0.00450",3],
+["12.30",4],
+["7.00",3]
 ];
 
-let index = 0;
+let x=data[random(0,3)];
 
-let posisi = 0;
+correct=x[1];
 
-let hapus = false;
-
-
-function typingEffect() {
-
-  const text =
-    document.getElementById("typingText");
-
-  const kalimat =
-    tulisan[index];
-
-
-  if (!hapus) {
-
-    text.textContent =
-      kalimat.substring(0, posisi);
-
-    posisi++;
-
-
-    if (posisi > kalimat.length) {
-
-      hapus = true;
-
-      setTimeout(
-        typingEffect,
-        1200
-      );
-
-      return;
-
-    }
-
-  } else {
-
-    text.textContent =
-      kalimat.substring(0, posisi);
-
-    posisi--;
-
-
-    if (posisi < 0) {
-
-      hapus = false;
-
-      posisi = 0;
-
-      index++;
-
-      if (index >= tulisan.length) {
-
-        index = 0;
-
-      }
-
-    }
-
-  }
-
-
-  setTimeout(
-    typingEffect,
-    hapus ? 50 : 100
-  );
+question.innerHTML=
+`Angka penting dari <b>${x[0]}</b> = ?`;
 
 }
 
-typingEffect();
+answer.value="";
+
+}
+
+function setMode(mode,button){
+
+mathMode=mode;
+
+document
+.querySelectorAll(".mode")
+.forEach(x=>x.classList.remove("active"));
+
+button.classList.add("active");
+
+newQuestion();
+
+}
+
+function startMath(){
+
+mathScore=0;
+
+score.textContent=0;
+
+result.textContent="";
+
+newQuestion();
+
+}
+
+function checkMath(){
+
+let user=Number(answer.value);
+
+if(user===correct){
+
+mathScore+=10;
+
+result.textContent=
+"✅ BENAR! +10";
+
+result.style.color="#4ade80";
+
+}else{
+
+result.textContent=
+"❌ Salah! Jawaban: "+correct;
+
+result.style.color="#fb7185";
+
+}
+
+score.textContent=mathScore;
+
+setTimeout(newQuestion,800);
+
+}
+
+answer.addEventListener("keydown",function(e){
+
+if(e.key==="Enter"){
+checkMath();
+}
+
+});
 
 
 /* =========================
-   MINI GAME
+   RACING GAME
 ========================= */
 
-let angkaRahasia =
-  Math.floor(Math.random() * 100) + 1;
+let running=false;
+let playerX=50;
+
+let enemyY1=-100;
+let enemyY2=-350;
+
+let enemyX1=30;
+let enemyX2=70;
+
+let raceScore=0;
+let raceSpeed=220;
+
+let lastTime=0;
+let animation;
 
 
-let percobaan = 0;
+function startRace(){
 
+running=true;
 
-function bukaGame() {
+raceScore=0;
+raceSpeed=220;
 
-  document
-    .getElementById("gameModal")
-    .classList.add("active");
+playerX=50;
 
-}
+enemyY1=-100;
+enemyY2=-350;
 
+enemyX1=random(18,45);
+enemyX2=random(55,82);
 
-function tutupGame() {
+player.style.left="50%";
 
-  document
-    .getElementById("gameModal")
-    .classList.remove("active");
+enemy1.style.left=
+enemyX1+"%";
 
-}
+enemy2.style.left=
+enemyX2+"%";
 
+gameOver.classList.add("hidden");
 
-function tebakAngka() {
+lastTime=performance.now();
 
-  const input =
-    document.getElementById("guessInput");
-
-  const hasil =
-    document.getElementById("gameResult");
-
-  const tebakan =
-    Number(input.value);
-
-
-  if (
-    tebakan < 1 ||
-    tebakan > 100 ||
-    !tebakan
-  ) {
-
-    hasil.textContent =
-      "⚠️ Masukkan angka 1 - 100!";
-
-    return;
-
-  }
-
-
-  percobaan++;
-
-
-  if (tebakan === angkaRahasia) {
-
-    hasil.textContent =
-      "🎉 BENAR! Kamu berhasil dalam " +
-      percobaan +
-      " percobaan!";
-
-  }
-
-  else if (tebakan < angkaRahasia) {
-
-    hasil.textContent =
-      "📈 Terlalu kecil! Coba lagi.";
-
-  }
-
-  else {
-
-    hasil.textContent =
-      "📉 Terlalu besar! Coba lagi.";
-
-  }
+animation=
+requestAnimationFrame(raceLoop);
 
 }
 
 
-function resetGame() {
+function move(direction){
 
-  angkaRahasia =
-    Math.floor(Math.random() * 100) + 1;
+if(!running)return;
 
-  percobaan = 0;
+playerX+=direction*5;
 
-  document
-    .getElementById("guessInput")
-    .value = "";
+playerX=Math.max(
+16,
+Math.min(84,playerX)
+);
 
-  document
-    .getElementById("gameResult")
-    .textContent =
-    "🎮 Game baru dimulai!";
+player.style.left=
+playerX+"%";
 
 }
 
 
-/* =========================
-   MONEY TRACKER
-========================= */
+function collision(a,b){
 
-let saldo = 0;
+let A=a.getBoundingClientRect();
+let B=b.getBoundingClientRect();
 
-let transaksi = [];
-
-
-function bukaMoney() {
-
-  document
-    .getElementById("moneyModal")
-    .classList.add("active");
+return(
+A.left<B.right &&
+A.right>B.left &&
+A.top<B.bottom &&
+A.bottom>B.top
+);
 
 }
 
 
-function tutupMoney() {
+function raceLoop(time){
 
-  document
-    .getElementById("moneyModal")
-    .classList.remove("active");
+if(!running)return;
 
-}
+let delta=
+Math.min(
+(time-lastTime)/1000,
+0.04
+);
 
+lastTime=time;
 
-function tambahUang(jenis) {
+raceScore+=delta*10;
 
-  const keterangan =
-    document.getElementById("keterangan");
+raceSpeed=
+220+
+Math.min(
+350,
+raceScore*1.5
+);
 
-  const jumlah =
-    document.getElementById("jumlah");
+enemyY1+=raceSpeed*delta;
+enemyY2+=raceSpeed*delta;
 
+enemy1.style.top=
+enemyY1+"px";
 
-  const nama =
-    keterangan.value.trim();
-
-  const nilai =
-    Number(jumlah.value);
-
-
-  if (!nama || !nilai || nilai <= 0) {
-
-    alert(
-      "Isi keterangan dan jumlah uang dulu!"
-    );
-
-    return;
-
-  }
+enemy2.style.top=
+enemyY2+"px";
 
 
-  if (jenis === "masuk") {
+if(
+enemyY1>
+road.clientHeight+100
+){
 
-    saldo += nilai;
+enemyY1=-100;
 
-  } else {
+enemyX1=
+random(18,45);
 
-    saldo -= nilai;
-
-  }
-
-
-  transaksi.push({
-
-    nama: nama,
-
-    jumlah: nilai,
-
-    jenis: jenis
-
-  });
-
-
-  keterangan.value = "";
-
-  jumlah.value = "";
-
-
-  tampilkanTransaksi();
+enemy1.style.left=
+enemyX1+"%";
 
 }
 
 
-function tampilkanTransaksi() {
+if(
+enemyY2>
+road.clientHeight+100
+){
 
-  document
-    .getElementById("saldo")
-    .textContent =
-    "Rp " +
-    saldo.toLocaleString("id-ID");
+enemyY2=-180;
 
+enemyX2=
+random(55,82);
 
-  const container =
-    document.getElementById("transactions");
-
-
-  container.innerHTML = "";
-
-
-  transaksi.forEach(
-    function(item, index) {
-
-      const div =
-        document.createElement("div");
-
-      div.className =
-        "transaction";
-
-
-      const warna =
-        item.jenis === "masuk"
-          ? "#00ff88"
-          : "#ff4d6d";
-
-
-      const tanda =
-        item.jenis === "masuk"
-          ? "+"
-          : "-";
-
-
-      div.innerHTML = `
-
-        <div>
-
-          <b>${item.nama}</b>
-
-          <br>
-
-          <small>
-            ${item.jenis === "masuk"
-              ? "Pemasukan"
-              : "Pengeluaran"}
-          </small>
-
-        </div>
-
-        <div>
-
-          <strong style="color:${warna}">
-            ${tanda} Rp
-            ${item.jumlah.toLocaleString("id-ID")}
-          </strong>
-
-          <button
-            class="delete"
-            onclick="hapusTransaksi(${index})"
-          >
-            ×
-          </button>
-
-        </div>
-
-      `;
-
-
-      container.appendChild(div);
-
-    }
-  );
+enemy2.style.left=
+enemyX2+"%";
 
 }
 
 
-function hapusTransaksi(index) {
+carScore.textContent=
+Math.floor(raceScore);
 
-  const item =
-    transaksi[index];
-
-
-  if (item.jenis === "masuk") {
-
-    saldo -= item.jumlah;
-
-  } else {
-
-    saldo += item.jumlah;
-
-  }
+speedText.textContent=
+(raceSpeed/220).toFixed(1);
 
 
-  transaksi.splice(index, 1);
+if(
+collision(player,enemy1) ||
+collision(player,enemy2)
+){
+
+running=false;
+
+finalScore.textContent=
+Math.floor(raceScore);
+
+gameOver.classList.remove("hidden");
+
+return;
+
+}
 
 
-  tampilkanTransaksi();
+animation=
+requestAnimationFrame(raceLoop);
+
+}
+
+
+/* KEYBOARD */
+
+document.addEventListener(
+"keydown",
+function(e){
+
+if(
+e.key==="ArrowLeft" ||
+e.key.toLowerCase()==="a"
+){
+
+move(-1);
+
+}
+
+if(
+e.key==="ArrowRight" ||
+e.key.toLowerCase()==="d"
+){
+
+move(1);
+
+}
+
+});
+
+
+/* CONTACT */
+
+function sendMail(e){
+
+e.preventDefault();
+
+let subject=
+"Pesan dari Website Joivan";
+
+let body=
+"Nama: "+
+name.value+
+"\nEmail: "+
+email.value+
+"\n\nPesan:\n"+
+message.value;
+
+location.href=
+"mailto:joivanadliyanjoy@gmail.com"+
+"?subject="+
+encodeURIComponent(subject)+
+"&body="+
+encodeURIComponent(body);
 
 }
 
